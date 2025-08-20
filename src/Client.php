@@ -598,6 +598,38 @@ class Client
     }
 
     /**
+     * Make API call to LinkedIn using PUT method
+     *
+     * @param string $endpoint
+     * @param resource $resource
+     *
+     * @return array
+     * @throws \LinkedIn\Exception
+     */
+    public function put($endpoint, $resource)
+    {
+        if (false === is_resource($resource)) {
+            throw new \InvalidArgumentException(
+                sprintf('Argument must be a valid resource type. %s given.', gettype($resource))
+            );
+        }
+
+        try {
+            (new GuzzleClient())->put(
+                $endpoint,
+                [
+                    'headers' => [
+                        'Authorization'  => 'Bearer ' . $this->accessToken->getToken()
+                    ],
+                    'body' => $resource
+                ]
+            );
+        } catch (RequestException $requestException) {
+            throw Exception::fromRequestException($requestException);
+        }
+    }
+
+    /**
      * @param $path
      * @return array
      * @throws Exception
