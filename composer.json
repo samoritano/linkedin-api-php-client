@@ -1,5 +1,5 @@
 {
-    "name": "samoritano/linkedin-api-php-client",
+    "name": "samoritano/linkedin-api-php-client-v2",
     "description": "This package is an SDK for using LinkedIn V2 Marketing API. You can use it for managing Company Pages in this social network",
     "type": "library",
     "keywords": [
@@ -13,7 +13,7 @@
     "require": {
         "php": "^7.4 || ^8.0",
         "ext-curl": "*",
-        "guzzlehttp/guzzle": "^7.3.0"
+        "guzzlehttp/guzzle": "^7.3.0 || ^8.0"
     },
     "license": "MIT",
     "support": {
